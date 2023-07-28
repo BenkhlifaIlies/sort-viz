@@ -4,4 +4,4 @@ Hello and welcome to SortViz. I built this app because I am fascinated by algori
 
 I hope you have as much fun playing around with this visualization tool as much as I enjoyed building it. 
 
-You can access it here : (N/A yet)
+You can access it here : https://sortviz-benkhelifailyes.netlify.app/
