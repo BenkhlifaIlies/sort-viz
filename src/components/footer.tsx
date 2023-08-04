@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 import TwitterSvg from '../assets/svg/twitter.svg';
 import LinkedinSvg from '../assets/svg/linkedin.svg';
@@ -56,9 +56,14 @@ const Footer = () => {
 
         <nav>
           <StyledUl>
-            <StyledLi><Link to={"/about"}>About</Link></StyledLi>
             <StyledLi>
-              <a href="https://github.com/BenkhlifaIlies/sort-viz" target="_blank">
+              <Link to={'/about'}>About</Link>
+            </StyledLi>
+            <StyledLi>
+              <a
+                href="https://github.com/BenkhlifaIlies/sort-viz"
+                target="_blank"
+              >
                 View Source
               </a>
             </StyledLi>
