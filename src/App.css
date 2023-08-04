@@ -1,6 +1,33 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Chivo+Mono&display=swap');
+
+:root {
+  --gray97: #f7f7f7;
+  --dark-gray: #f7f7f7;
+  --light-gray-shade: #bbbbbb;
+}
+
+body {
+  margin: 0;
+  font-family: 'Chivo Mono', monospace;
+  caret-color: transparent;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::-webkit-scrollbar {
+  width: auto;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--gray97);
+}
+
+::-webkit-scrollbar-thumb {
+  background:  var(--light-gray-shade);
+  border: 0.25em solid var(--gray97);
+  border-radius: 100vw;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--dark-gray);
 }
