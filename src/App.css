@@ -23,7 +23,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background:  var(--light-gray-shade);
+  background: var(--light-gray-shade);
   border: 0.25em solid var(--gray97);
   border-radius: 100vw;
 }
