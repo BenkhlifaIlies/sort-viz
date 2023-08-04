@@ -2,8 +2,11 @@
 
 :root {
   --gray97: #f7f7f7;
-  --dark-gray: #f7f7f7;
+  --dark-gray: #a9a9a9;
   --light-gray-shade: #bbbbbb;
+
+  --gray: '#bbbbbb ';
+  --pure-red: '#ff0000';
 }
 
 body {
