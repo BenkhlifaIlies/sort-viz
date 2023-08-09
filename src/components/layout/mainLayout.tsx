@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Header from '../header';
 import Footer from '../footer';
 
 interface LayoutProps {
@@ -9,6 +10,7 @@ interface LayoutProps {
 const mainLayout = ({ children }: LayoutProps) => {
   return (
     <Wrapper>
+      <Header />
       {children}
       <Footer />
     </Wrapper>
