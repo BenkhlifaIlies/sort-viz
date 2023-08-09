@@ -13,7 +13,7 @@ const mainLayout = ({ children }: LayoutProps) => {
     <Wrapper>
       <ErrorBoundary>
         <Header />
-        {children}
+        <main>{children}</main>
         <Footer />
       </ErrorBoundary>
     </Wrapper>
@@ -24,6 +24,13 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+  > header,
+  > footer {
+    flex: 0 0 auto;
+  }
+  > main {
+    flex: 1 1 auto;
+  }
 `;
 export default mainLayout;

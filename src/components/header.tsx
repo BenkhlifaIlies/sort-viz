@@ -6,7 +6,7 @@ import { RunSvg, ShuffleSvg, RandomizeSvg, CogSvg } from './common/icons';
 
 const header = () => {
   return (
-    <OuterDiv>
+    <HeaderWrapper>
       <Wrapper>
         <StyledDiv>
           <Link to={'/'}>
@@ -38,11 +38,11 @@ const header = () => {
           />
         </ControlPanel>
       </Wrapper>
-    </OuterDiv>
+    </HeaderWrapper>
   );
 };
 
-const OuterDiv = styled.div`
+const HeaderWrapper = styled.header`
   width: 100%;
   height: 2rem;
   padding-block: 1rem;
