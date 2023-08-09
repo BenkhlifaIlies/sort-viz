@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Header from '../header';
 import Footer from '../footer';
+import ErrorBoundary from '../errorBoundary';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -10,9 +11,11 @@ interface LayoutProps {
 const mainLayout = ({ children }: LayoutProps) => {
   return (
     <Wrapper>
-      <Header />
-      {children}
-      <Footer />
+      <ErrorBoundary>
+        <Header />
+        {children}
+        <Footer />
+      </ErrorBoundary>
     </Wrapper>
   );
 };
