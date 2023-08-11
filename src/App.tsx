@@ -21,27 +21,6 @@ function MyApp() {
       >
         Hello World!!
       </h1>
-      <h1
-        onClick={() => {
-          setModalOpen(true);
-        }}
-      >
-        Hello World!!
-      </h1>
-      <h1
-        onClick={() => {
-          setModalOpen(true);
-        }}
-      >
-        Hello World!!
-      </h1>
-      <h1
-        onClick={() => {
-          setModalOpen(true);
-        }}
-      >
-        Hello World!!
-      </h1>
       {modalOpen && (
         <Modal title={'test'} setOpenModal={setModalOpen}>
           <Modal.Body>
