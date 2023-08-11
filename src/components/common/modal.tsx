@@ -4,6 +4,7 @@ import styled from 'styled-components';
 interface ModalProps {
   title: string;
   children: React.ReactNode;
+  // show: boolean;
   setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
@@ -22,10 +23,12 @@ const Modal = ({ title, children, setOpenModal }: ModalProps) => {
       <Backdrop onClick={handleClose} />
       <ModalWrapper>
         <ModalContent $display={String(display)}>
-          <ModalHeader>
-            <Title>{title}</Title>
-            <CloseBtn onClick={handleClose}>X</CloseBtn>
-          </ModalHeader>
+          <div className="nodal-header">
+            <ModalHeader>
+              <Title>{title}</Title>
+              <CloseBtn onClick={handleClose}>X</CloseBtn>
+            </ModalHeader>
+          </div>
           {children}
         </ModalContent>
       </ModalWrapper>
@@ -33,10 +36,14 @@ const Modal = ({ title, children, setOpenModal }: ModalProps) => {
   );
 };
 
-const ModalBody = ({ children }: SubComponentProps) => <>{children}</>;
+const ModalBody = ({ children }: SubComponentProps) => (
+  <div className="nodal-body">{children}</div>
+);
 Modal.Body = ModalBody;
 
-const ModalFooter = ({ children }: SubComponentProps) => <>{children}</>;
+const ModalFooter = ({ children }: SubComponentProps) => (
+  <div className="nodal-footer">{children}</div>
+);
 Modal.Footer = ModalFooter;
 
 export default Modal;
@@ -62,9 +69,7 @@ const ModalWrapper = styled.div`
   align-items: center;
 `;
 const ModalContent = styled.div<{ $display?: string }>`
-  position: absolute;
-  max-width: 70%;
-  height: fit-content;
+  max-width: 320px;
   display: flex;
   flex-direction: column;
   padding: 1rem;
@@ -99,6 +104,9 @@ const ModalContent = styled.div<{ $display?: string }>`
       visibility: hidden;
       transform: translateY(-6rem);
     }
+  }
+  @media only screen and (min-width: 768px) {
+    max-width: 500px;
   }
 `;
 
