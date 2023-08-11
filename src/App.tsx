@@ -5,8 +5,8 @@ import {
   Routes,
   Navigate,
 } from 'react-router-dom';
-import './App.css';
-import MainLayout from './components/layout/mainLayout';
+import './assets/styles/App.css';
+import MainLayout from './layout/mainLayout';
 import TutorialModal from './components/tutorialModal';
 function MyApp() {
   const [tutorialModalVisibility, setTutorialModalVisibility] =
