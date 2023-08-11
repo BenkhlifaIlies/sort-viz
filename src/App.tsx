@@ -8,22 +8,21 @@ import {
 import './assets/styles/App.css';
 import MainLayout from './layout/mainLayout';
 import TutorialModal from './components/tutorialModal';
+
 function MyApp() {
   const [tutorialModalVisibility, setTutorialModalVisibility] =
     useState<boolean>(false);
 
   useLayoutEffect(() => {
-    setTutorialModalVisibility(true);
+    if (window.sessionStorage.getItem('show-tutorial') !== 'false') {
+      setTutorialModalVisibility(true);
+      window.sessionStorage.setItem('show-tutorial', 'false');
+    }
   }, []);
+
   return (
     <MainLayout>
-      <h1
-        onClick={() => {
-          setTutorialModalVisibility(true);
-        }}
-      >
-        Hello World!!
-      </h1>
+      <h1>Hello World!!</h1>
       {tutorialModalVisibility && (
         <TutorialModal
           setTutorialModalVisibility={setTutorialModalVisibility}
