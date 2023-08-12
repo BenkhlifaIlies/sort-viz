@@ -8,10 +8,12 @@ import {
 import './assets/styles/App.css';
 import MainLayout from './layout/mainLayout';
 import TutorialModal from './components/tutorialModal';
+import Toast, { ToastType } from './components/common/toast';
 
 function MyApp() {
   const [tutorialModalVisibility, setTutorialModalVisibility] =
     useState<boolean>(false);
+  const [notif, setNotif] = useState<ToastType[]>([]);
 
   useLayoutEffect(() => {
     if (window.sessionStorage.getItem('show-tutorial') !== 'false') {
@@ -28,6 +30,7 @@ function MyApp() {
           setTutorialModalVisibility={setTutorialModalVisibility}
         />
       )}
+      <Toast toastlist={notif} setList={setNotif} />
     </MainLayout>
   );
 }
