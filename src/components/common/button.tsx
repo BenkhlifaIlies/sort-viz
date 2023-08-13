@@ -1,54 +1,65 @@
 import styled from 'styled-components';
 
 interface ButtonProps {
+  variant: 'primary' | 'cancel' | 'control-panel' | 'drop-down';
   label: string;
-  variant?: 'primary' | 'cancel' | 'control-panel';
-  disabled?: boolean;
-  Icon: () => JSX.Element;
   onClick: () => void;
+  children?: React.ReactNode;
+  disabled?: boolean;
 }
 
 const button = ({
-  label,
-  Icon,
-  onClick,
   variant = 'primary',
+  label,
+  onClick,
+  children,
   disabled = false,
 }: ButtonProps) => {
   return (
     <Button className={variant} {...{ disabled, onClick }}>
-      <Icon />
+      {children}
       <span>{label}</span>
     </Button>
   );
 };
-
 const Button = styled.button`
+  border: none;
   all: unset;
   cursor: pointer;
-  font-size: 1.25rem;
-  margin-right: 0.75rem;
-  padding: 0.25em;
-  border: none;
-  border-radius: 3px;
   display: flex;
+  align-items: center;
   flex-direction: row;
   justify-content: space-around;
-  &:focus {
-    outline: revert;
-    box-shadow: none;
-    /* outline: none; */
+  gap: 0.5rem;
+  margin-left: 1rem;
+  padding: 0.25rem 0.5rem;
+  font-size: 1em;
+  font-weight: 500;
+  text-transform: capitalize;
+  border-radius: 0.25rem;
+  background-color: transparent;
+  &.primary,
+  &.drop-down {
+    color: white;
+    background-color: var(--nice-blue);
   }
-  span {
-    margin-left: 0.25rem;
-    display: none;
-    @media (min-width: 767px) {
-      display: flex;
-      text-transform: capitalize;
+  &.cancel {
+    color: #000;
+    background-color: var(--gray97);
+    border: 2px solid var(--nice-blue);
+  }
+  &.control-panel {
+    color: #000;
+  }
+  &.drop-down {
+    flex-direction: row-reverse;
+    margin: unset;
+    width: 180px;
+    svg .close {
+      transform: rotate(-180deg);
+      transition: all 0.2s linear 100;
     }
   }
-  svg {
-    vertical-align: middle;
-  }
 `;
+
 export default button;

@@ -9,6 +9,7 @@ import './assets/styles/App.css';
 import MainLayout from './layout/mainLayout';
 import TutorialModal from './components/tutorialModal';
 import Toast, { ToastType } from './components/common/toast';
+import DropDown from './components/common/dropDown';
 
 function MyApp() {
   const [tutorialModalVisibility, setTutorialModalVisibility] =
@@ -25,6 +26,10 @@ function MyApp() {
   return (
     <MainLayout>
       <h1>Hello World!!</h1>
+      <DropDown
+        currentOption="bubble sort"
+        options={['bubble sort', 'selection sort']}
+      />
       {tutorialModalVisibility && (
         <TutorialModal
           setTutorialModalVisibility={setTutorialModalVisibility}

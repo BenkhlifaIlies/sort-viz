@@ -66,14 +66,12 @@ const TutorialModal = ({ setTutorialModalVisibility }: IProps) => {
         <StyledDiv>
           {pageCounter !== 1 && (
             <Button
-              Icon={() => <></>}
               label="Previous"
               variant="primary"
               onClick={handlePrevious}
             />
           )}
           <Button
-            Icon={() => <></>}
             label={pageCounter < 2 ? `Next` : `Close`}
             variant="primary"
             onClick={handleNext}

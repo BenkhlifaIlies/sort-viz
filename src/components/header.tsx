@@ -14,28 +14,35 @@ const header = () => {
             <span> AlgoViz </span>
           </Link>
         </StyledDiv>
-
         <ControlPanel>
           <Button
+            variant="control-panel"
             label="run"
-            Icon={RunSvg}
             onClick={() => console.log('Run been pressed')}
-          />
+          >
+            <RunSvg />
+          </Button>
           <Button
+            variant="control-panel"
             label="shuffle"
-            Icon={ShuffleSvg}
             onClick={() => console.log('Shuffle been pressed')}
-          />
+          >
+            <ShuffleSvg />
+          </Button>
           <Button
+            variant="control-panel"
             label="randomize"
-            Icon={RandomizeSvg}
             onClick={() => console.log('Randomized been pressed')}
-          />
+          >
+            <RandomizeSvg />
+          </Button>
           <Button
+            variant="control-panel"
             label=""
-            Icon={CogSvg}
             onClick={() => console.log('Cog been pressed')}
-          />
+          >
+            <CogSvg />
+          </Button>
         </ControlPanel>
       </Wrapper>
     </HeaderWrapper>

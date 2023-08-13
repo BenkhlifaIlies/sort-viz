@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import { Arrow } from './icons';
-
+import Button from './button';
 interface DropDownProps {
   currentOption: string;
   options: string[];
@@ -18,10 +18,16 @@ const DropDown = ({ currentOption, options }: DropDownProps) => {
 
   return (
     <>
-      <Button onClick={toggleDropdown} $rotate={String(isOpen)}>
-        <span>{currentOption}</span>
-        <Arrow />
+      <Button
+        variant="drop-down"
+        label={currentOption}
+        onClick={toggleDropdown}
+      >
+        <AnimatedSvg $rotate={isOpen}>
+          <Arrow />
+        </AnimatedSvg>
       </Button>
+
       {isOpen && (
         <Options>
           {options.map((option, index) => {
@@ -54,38 +60,11 @@ DropDown.Option = DropDownOption;
 
 export default DropDown;
 
-const Button = styled.button<{ $rotate?: string }>`
-  all: unset;
-  cursor: pointer;
-  border: none;
-  min-width: 160px;
-  padding: 0.25rem;
-  font-size: 1.125rem;
-  font-weight: 500;
-  line-height: 1.5;
-  color: #fff;
-  background-color: var(--nice-blue);
-  border-color: transparent;
-  border-radius: 0.5rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  gap: 1rem;
-  :hover {
-    border-color: #0000;
-  }
+const AnimatedSvg = styled.span<{ $rotate?: boolean }>`
+  height: 1rem;
   svg {
-    ${({ $rotate }) =>
-      $rotate === 'true'
-        ? `
-    transform: rotate(-180deg);
-    transition: all .2s ease-in-out;
-  `
-        : `
-  transform: rotate(-90deg);
-  transition: all .2s ease-in-out;
-`}
+    transform: ${props => (props.$rotate ? 'rotate(-180deg)' : '')};
+    transition: all 0.2s ease-in-out;
   }
 `;
 const Options = styled.ul`

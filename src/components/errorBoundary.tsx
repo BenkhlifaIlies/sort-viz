@@ -45,10 +45,10 @@ const ErrorComponent = () => {
       <ImSad />
       <Title>Sorry... An error occured, reload the page please.</Title>
       <Button
-        Icon={() => <></>}
+        variant="primary"
         label="Reload The App"
         onClick={() => window.location.reload()}
-      />
+      ></Button>
     </Wrapper>
   );
 };
