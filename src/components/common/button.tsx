@@ -24,7 +24,6 @@ const button = ({
 };
 const Button = styled.button`
   border: none;
-  all: unset;
   cursor: pointer;
   display: flex;
   align-items: center;
