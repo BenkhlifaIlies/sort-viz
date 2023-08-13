@@ -30,9 +30,8 @@ const Button = styled.button`
   flex-direction: row;
   justify-content: space-around;
   gap: 0.5rem;
-  margin-left: 1rem;
   padding: 0.25rem 0.5rem;
-  font-size: 1em;
+  font-size: 1.25rem;
   font-weight: 500;
   text-transform: capitalize;
   border-radius: 0.25rem;

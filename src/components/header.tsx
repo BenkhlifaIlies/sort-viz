@@ -51,22 +51,25 @@ const header = () => {
 
 const HeaderWrapper = styled.header`
   width: 100%;
-  height: 2rem;
   padding-block: 1rem;
   background-color: var(--gray97);
   box-shadow: 0 1px 6px 0 rgb(32 33 36 / 28%);
-  @media (min-width: 1200px) {
-    height: 3rem;
-  }
 `;
 const Wrapper = styled.div`
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   flex-direction: row;
   justify-content: space-between;
-  align-content: baseline;
-  margin-inline: 1rem;
-  @media (min-width: 1200px) {
+  max-width: 1440px;
+  margin-inline: auto;
+  padding-inline: 1rem;
+  button span {
+    display: none;
+  }
+  @media (min-width: 767px) {
+    button span {
+      display: flex;
+    }
   }
 `;
 const StyledDiv = styled.div`
@@ -94,7 +97,7 @@ const ControlPanel = styled.div`
   padding: 2px;
   font-size: 1.5rem;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;

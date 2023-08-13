@@ -24,13 +24,16 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  /* justify-content: space-between; */
   > header,
   > footer {
     flex: 0 0 auto;
   }
   > main {
     flex: 1 1 auto;
+    max-width: 1440px;
+    margin-inline: auto;
+    padding-inline: 1rem;
   }
 `;
+
 export default mainLayout;

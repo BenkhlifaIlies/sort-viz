@@ -8,79 +8,81 @@ import GithubSvg from '../assets/svg/github.svg';
 const Footer = () => {
   return (
     <StyledFooter>
-      <Container>
-        <StyledUl className="list-style-none d-flex flex-items-center mb-3 mb-sm-0 lh-condensed-ultra">
-          <StyledLi>
-            <a href="https://twitter.com/IlyesBenkhlifa" target="_blank">
-              <img
-                src={TwitterSvg}
-                height="18"
-                width="22"
-                alt="Twitter icon"
-                loading="lazy"
-                decoding="async"
-              />
-              <span className="sr-only">My Twitter</span>
-            </a>
-          </StyledLi>
-          <StyledLi>
-            <a
-              href="https://www.linkedin.com/in/ilyesbenkhelifa/"
-              target="_blank"
-            >
-              <img
-                src={LinkedinSvg}
-                height="18"
-                width="22"
-                alt="Linkedin icon"
-                loading="lazy"
-                decoding="async"
-              />
-              <span className="sr-only">My LinkedIn</span>
-            </a>
-          </StyledLi>
-          <StyledLi>
-            <a href="https://github.com/BenkhlifaIlies" target="_blank">
-              <img
-                src={GithubSvg}
-                height="18"
-                width="22"
-                alt="Github icon"
-                loading="lazy"
-                decoding="async"
-              />
-              <span className="sr-only">My GitHub</span>
-            </a>
-          </StyledLi>
-        </StyledUl>
-
-        <nav>
-          <StyledUl>
+      <Wrapper>
+        <Container>
+          <StyledUl className="list-style-none d-flex flex-items-center mb-3 mb-sm-0 lh-condensed-ultra">
             <StyledLi>
-              <Link to={'/about'}>About</Link>
-            </StyledLi>
-            <StyledLi>
-              <a
-                href="https://github.com/BenkhlifaIlies/sort-viz"
-                target="_blank"
-              >
-                View Source
+              <a href="https://twitter.com/IlyesBenkhlifa" target="_blank">
+                <img
+                  src={TwitterSvg}
+                  height="18"
+                  width="22"
+                  alt="Twitter icon"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span className="sr-only">My Twitter</span>
               </a>
             </StyledLi>
             <StyledLi>
-              <a href="mailto:theiliesbenkhlifa@gmail.com">Contact</a>
+              <a
+                href="https://www.linkedin.com/in/ilyesbenkhelifa/"
+                target="_blank"
+              >
+                <img
+                  src={LinkedinSvg}
+                  height="18"
+                  width="22"
+                  alt="Linkedin icon"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span className="sr-only">My LinkedIn</span>
+              </a>
             </StyledLi>
-            <StyledLi>Blog</StyledLi>
-            <StyledLi>Terms</StyledLi>
-            <StyledLi>Privacy</StyledLi>
+            <StyledLi>
+              <a href="https://github.com/BenkhlifaIlies" target="_blank">
+                <img
+                  src={GithubSvg}
+                  height="18"
+                  width="22"
+                  alt="Github icon"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span className="sr-only">My GitHub</span>
+              </a>
+            </StyledLi>
           </StyledUl>
-        </nav>
-      </Container>
-      <StyledHr />
-      <StyledP>
-        &copy; {new Date().getFullYear()} Benkhelifa Ilyes. | Made with
-        <StyledSpan> &#9829;</StyledSpan> by Benkhelifa Ilyes.
-      </StyledP>
+
+          <nav>
+            <StyledUl>
+              <StyledLi>
+                <Link to={'/about'}>About</Link>
+              </StyledLi>
+              <StyledLi>
+                <a
+                  href="https://github.com/BenkhlifaIlies/sort-viz"
+                  target="_blank"
+                >
+                  View Source
+                </a>
+              </StyledLi>
+              <StyledLi>
+                <a href="mailto:theiliesbenkhlifa@gmail.com">Contact</a>
+              </StyledLi>
+              <StyledLi>Blog</StyledLi>
+              <StyledLi>Terms</StyledLi>
+              <StyledLi>Privacy</StyledLi>
+            </StyledUl>
+          </nav>
+        </Container>
+        <StyledHr />
+        <StyledP>
+          &copy; {new Date().getFullYear()} Benkhelifa Ilyes. | Made with
+          <StyledSpan> &#9829;</StyledSpan> by Benkhelifa Ilyes.
+        </StyledP>
+      </Wrapper>
     </StyledFooter>
   );
 };
@@ -104,6 +106,11 @@ const StyledFooter = styled.footer`
     word-wrap: normal;
     border: 0;
   }
+`;
+const Wrapper = styled.div`
+  max-width: 1440px;
+  margin-inline: auto;
+  padding-inline: 1rem;
 `;
 const Container = styled.div`
   display: flex;
