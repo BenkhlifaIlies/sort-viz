@@ -10,10 +10,15 @@ import MainLayout from './layout/mainLayout';
 import TutorialModal from './components/tutorialModal';
 import Toast, { ToastType } from './components/common/toast';
 import DropDown from './components/common/dropDown';
+import SettingsModal from './components/settingsModal';
 
 function MyApp() {
   const [tutorialModalVisibility, setTutorialModalVisibility] =
     useState<boolean>(false);
+
+  const [settingslModalVisibility, setSettingslModalVisibility] =
+    useState<boolean>(false);
+
   const [notif, setNotif] = useState<ToastType[]>([]);
 
   useLayoutEffect(() => {
@@ -25,7 +30,11 @@ function MyApp() {
 
   return (
     <MainLayout>
-      <h1>Hello World!!</h1>
+      <h1
+        onClick={() => setSettingslModalVisibility(!settingslModalVisibility)}
+      >
+        Hello World!!
+      </h1>
       <DropDown
         currentOption="bubble sort"
         options={['bubble sort', 'selection sort']}
@@ -35,6 +44,12 @@ function MyApp() {
           setTutorialModalVisibility={setTutorialModalVisibility}
         />
       )}
+      {settingslModalVisibility && (
+        <SettingsModal
+          setSettingslModalVisibility={setSettingslModalVisibility}
+        />
+      )}
+
       <Toast toastlist={notif} setList={setNotif} />
     </MainLayout>
   );
