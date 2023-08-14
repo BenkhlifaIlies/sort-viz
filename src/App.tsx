@@ -12,6 +12,7 @@ import MainLayout from './layout/mainLayout';
 import TutorialModal from './components/tutorialModal';
 import Toast, { ToastType } from './components/common/toast';
 import SettingsModal from './components/settingsModal';
+import BarList from './components/barList';
 
 function MyApp() {
   const [tutorialModalVisibility, setTutorialModalVisibility] =
@@ -31,11 +32,7 @@ function MyApp() {
 
   return (
     <MainLayout>
-      <h1
-        onClick={() => setSettingslModalVisibility(!settingslModalVisibility)}
-      >
-        Hello World!!
-      </h1>
+      <BarList />
       {tutorialModalVisibility && (
         <TutorialModal
           setTutorialModalVisibility={setTutorialModalVisibility}
