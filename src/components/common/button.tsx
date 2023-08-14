@@ -40,11 +40,14 @@ const Button = styled.button`
   &.drop-down {
     color: white;
     background-color: var(--nice-blue);
+    border: 2px solid var(--nice-blue);
+    min-width: 5rem;
   }
   &.cancel {
     color: #000;
     background-color: var(--gray97);
     border: 2px solid var(--nice-blue);
+    min-width: 5rem;
   }
   &.control-panel {
     color: #000;

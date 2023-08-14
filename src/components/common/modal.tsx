@@ -52,13 +52,14 @@ const Backdrop = styled.div`
   width: 100vw;
   height: 100vh;
   position: fixed;
-  right: 0;
+  left: 0;
   top: 0;
   background-color: #000;
   opacity: 0.5;
   z-index: 10;
 `;
 const ModalWrapper = styled.div`
+  position: absolute;
   top: 0;
   right: 0;
   z-index: 20;
@@ -107,6 +108,7 @@ const ModalContent = styled.div<{ $display?: string }>`
   }
   @media only screen and (min-width: 768px) {
     max-width: 500px;
+    min-width: 350px;
   }
 `;
 

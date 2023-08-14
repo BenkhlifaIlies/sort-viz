@@ -94,13 +94,17 @@ const StyledDiv = styled.div`
   }
 `;
 const ControlPanel = styled.div`
-  padding: 2px;
+  /* padding: 2px; */
   font-size: 1.5rem;
   display: flex;
   flex-wrap: nowrap;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  &:last-child {
+    width: fit-content;
+    padding: unset;
+  }
 `;
 
 export default header;

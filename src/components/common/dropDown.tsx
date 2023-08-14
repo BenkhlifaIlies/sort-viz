@@ -68,6 +68,7 @@ const AnimatedSvg = styled.span<{ $rotate?: boolean }>`
   }
 `;
 const Options = styled.ul`
+  position: absolute;
   list-style: none;
   margin: 0;
   padding: 0;

@@ -88,6 +88,7 @@ const StyledDiv = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: end;
+  gap: 1rem;
   span {
     display: flex;
   }
