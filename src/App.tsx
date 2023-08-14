@@ -5,11 +5,12 @@ import {
   Routes,
   Navigate,
 } from 'react-router-dom';
+
 import './assets/styles/App.css';
 import MainLayout from './layout/mainLayout';
+
 import TutorialModal from './components/tutorialModal';
 import Toast, { ToastType } from './components/common/toast';
-import DropDown from './components/common/dropDown';
 import SettingsModal from './components/settingsModal';
 
 function MyApp() {
@@ -35,10 +36,6 @@ function MyApp() {
       >
         Hello World!!
       </h1>
-      <DropDown
-        currentOption="bubble sort"
-        options={['bubble sort', 'selection sort']}
-      />
       {tutorialModalVisibility && (
         <TutorialModal
           setTutorialModalVisibility={setTutorialModalVisibility}

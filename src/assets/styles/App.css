@@ -1,15 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Chivo+Mono&display=swap');
 
 :root {
+  --gray: '#bbbbbb ';
   --gray97: #f7f7f7;
-  --dark-gray: #a9a9a9;
   --light-gray-shade: #bbbbbb;
+  --dark-gray: #a9a9a9;
   --nice-blue: #3178c6;
+  --dark-blue: '#132e4c';
+  --desaturated-cyan: '#89d4cf';
   --soft-cyan: #7aea96;
   --hot-orange: #ff9000;
-  --warm-coral: #ff4e00;
-  --gray: '#bbbbbb ';
+  --dogwood-rose: #da1b60;
   --pure-red: '#ff0000';
+  --warm-coral: #ff4e00;
+  --blue-gradient: linear-gradient(#3178c6, #132e4c);
+  --green-gradient: linear-gradient(#89d4cf, #7aea96);
+  --orange-gradient: linear-gradient(#ff9000, #da1b60);
+  --red-gradient: linear-gradient(#ff0000, #ff4e00);
 }
 
 html {
