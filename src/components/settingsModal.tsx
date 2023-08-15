@@ -1,37 +1,35 @@
-import { useState } from 'react';
-// import { observer } from "mobx-react";
+import { useContext, useState } from 'react';
 import styled from 'styled-components';
 
 import Modal from './common/modal';
 import Button from './common/button';
 import DropDown from './common/dropDown';
-
-// import store from "../store/store";
-// import { Algorithm } from "../constants/types";
-// import { animationDurationArray } from "../constants/numbers";
+import { Settings } from '../constants/types';
+import { AppContext } from '../contexts/context';
+import { algoOptions, animationoptions } from '../constants/constants';
 
 interface IProps {
   setSettingslModalVisibility: React.Dispatch<React.SetStateAction<boolean>>;
 }
-type SettingsObject = {
-  algorithm: 'bubble sort' | 'insertion sort';
-  speed: string;
-};
 
 const SettingsModal = ({ setSettingslModalVisibility }: IProps) => {
-  const [settings] = useState<SettingsObject>({
-    algorithm: 'bubble sort',
-    speed: '200',
-  });
+  const { algorithm, updateAlgorithmSettings, speed, updateAnimationSettings } =
+    useContext(AppContext);
 
-  //   const setField = (field: string, value: string | number) => {
-  //     setSettings({
-  //       ...settings,
-  //       [field]: value,
-  //     });
-  //   };
+  const [settings, setSettings] = useState<Settings>({
+    algorithm,
+    speed,
+  });
+  const setField = (field: string, value: string | number) => {
+    setSettings({
+      ...settings,
+      [field]: value,
+    });
+  };
 
   const handleSubmit = () => {
+    updateAlgorithmSettings(settings.algorithm);
+    updateAnimationSettings(settings.speed);
     setSettingslModalVisibility(false);
   };
 
@@ -47,7 +45,9 @@ const SettingsModal = ({ setSettingslModalVisibility }: IProps) => {
           <div>
             <DropDown
               currentOption={settings.algorithm}
-              options={[settings.algorithm, settings.algorithm]}
+              options={algoOptions}
+              applyTo={'algorithm'}
+              setField={setField}
             ></DropDown>
           </div>
         </Flex>
@@ -55,8 +55,10 @@ const SettingsModal = ({ setSettingslModalVisibility }: IProps) => {
           <label htmlFor="speed">Speed</label>
           <div>
             <DropDown
-              currentOption={settings.speed}
-              options={[settings.speed, settings.speed]}
+              currentOption={String(settings.speed)}
+              options={animationoptions}
+              applyTo={'speed'}
+              setField={setField}
             ></DropDown>
           </div>
         </Flex>

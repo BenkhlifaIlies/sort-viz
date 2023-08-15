@@ -1,10 +1,14 @@
-import styled from 'styled-components';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 import Button from './common/button';
 import Logo from '../assets/svg/sortviz.svg';
 import { RunSvg, ShuffleSvg, RandomizeSvg, CogSvg } from './common/icons';
+import { AppContext } from '../contexts/context';
 
-const header = () => {
+const Header = () => {
+  const { toggleModalVisibility } = useContext(AppContext);
+
   return (
     <HeaderWrapper>
       <Wrapper>
@@ -39,7 +43,7 @@ const header = () => {
           <Button
             variant="control-panel"
             label=""
-            onClick={() => console.log('Cog been pressed')}
+            onClick={toggleModalVisibility}
           >
             <CogSvg />
           </Button>
@@ -107,4 +111,4 @@ const ControlPanel = styled.div`
   }
 `;
 
-export default header;
+export default Header;

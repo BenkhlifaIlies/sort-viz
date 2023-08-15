@@ -4,15 +4,24 @@ import { Arrow } from './icons';
 import Button from './button';
 interface DropDownProps {
   currentOption: string;
-  options: string[];
+  options: string[] | number[];
+  applyTo: string;
+  setField: (field: string, value: string | number) => void;
 }
 
 interface SubComponentProps {
   value: string;
   closeMenu: () => void;
+  applyTo: string;
+  setField: (field: string, value: string | number) => void;
 }
 
-const DropDown = ({ currentOption, options }: DropDownProps) => {
+const DropDown = ({
+  currentOption,
+  options,
+  applyTo,
+  setField,
+}: DropDownProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const toggleDropdown = () => setIsOpen(!isOpen);
 
@@ -33,9 +42,11 @@ const DropDown = ({ currentOption, options }: DropDownProps) => {
           {options.map((option, index) => {
             return (
               <DropDown.Option
-                closeMenu={toggleDropdown}
                 key={index}
-                value={option}
+                value={String(option)}
+                applyTo={applyTo}
+                setField={setField}
+                closeMenu={toggleDropdown}
               ></DropDown.Option>
             );
           })}
@@ -45,10 +56,15 @@ const DropDown = ({ currentOption, options }: DropDownProps) => {
   );
 };
 
-const DropDownOption = ({ value, closeMenu }: SubComponentProps) => (
+const DropDownOption = ({
+  value,
+  closeMenu,
+  applyTo,
+  setField,
+}: SubComponentProps) => (
   <Option
     onClick={() => {
-      console.log('algorithm', value);
+      setField(applyTo, value);
       closeMenu();
     }}
   >

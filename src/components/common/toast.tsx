@@ -1,11 +1,6 @@
 import { useCallback, useEffect } from 'react';
 import styled from 'styled-components';
-
-export type ToastType = {
-  id: number;
-  message: string;
-};
-
+import { ToastType } from '../../constants/types';
 interface TostProps {
   toastlist: ToastType[];
   setList: React.Dispatch<React.SetStateAction<ToastType[]>>;

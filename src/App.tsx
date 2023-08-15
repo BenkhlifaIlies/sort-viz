@@ -10,18 +10,30 @@ import './assets/styles/App.css';
 import MainLayout from './layout/mainLayout';
 
 import TutorialModal from './components/tutorialModal';
-import Toast, { ToastType } from './components/common/toast';
+import Toast from './components/common/toast';
 import SettingsModal from './components/settingsModal';
 import BarList from './components/barList';
+import { AppContext } from './contexts/context';
+import {
+  Algorithm,
+  AnimationSpeed,
+  ContextType,
+  ToastType,
+} from './constants/types';
+import { algoOptions, animationoptions } from './constants/constants';
 
 function MyApp() {
   const [tutorialModalVisibility, setTutorialModalVisibility] =
     useState<boolean>(false);
-
   const [settingslModalVisibility, setSettingslModalVisibility] =
     useState<boolean>(false);
-
   const [notif, setNotif] = useState<ToastType[]>([]);
+  const [algorithm, setAlgorithm] = useState<Algorithm>(
+    algoOptions[0] as Algorithm,
+  );
+  const [speed, setSpeed] = useState<AnimationSpeed>(
+    animationoptions[1] as AnimationSpeed,
+  );
 
   useLayoutEffect(() => {
     if (window.sessionStorage.getItem('show-tutorial') !== 'false') {
@@ -30,22 +42,52 @@ function MyApp() {
     }
   }, []);
 
-  return (
-    <MainLayout>
-      <BarList />
-      {tutorialModalVisibility && (
-        <TutorialModal
-          setTutorialModalVisibility={setTutorialModalVisibility}
-        />
-      )}
-      {settingslModalVisibility && (
-        <SettingsModal
-          setSettingslModalVisibility={setSettingslModalVisibility}
-        />
-      )}
+  const toggleModalVisibility = () => {
+    setSettingslModalVisibility(!settingslModalVisibility);
+  };
 
-      <Toast toastlist={notif} setList={setNotif} />
-    </MainLayout>
+  const pushNotification = (toast: ToastType) => {
+    setNotif([...notif, toast]);
+  };
+
+  const updateAlgorithmSettings = (a: Algorithm) => {
+    setAlgorithm(a);
+  };
+
+  const updateAnimationSettings = (n: AnimationSpeed) => {
+    setSpeed(n);
+  };
+
+  const initContext: ContextType = {
+    settingslModalVisibility,
+    toggleModalVisibility,
+    algorithm,
+    updateAlgorithmSettings,
+    speed,
+    updateAnimationSettings,
+    notificationList: [],
+    pushNotification,
+    values: [],
+  };
+
+  return (
+    <AppContext.Provider value={initContext}>
+      <MainLayout>
+        <BarList />
+        {tutorialModalVisibility && (
+          <TutorialModal
+            setTutorialModalVisibility={setTutorialModalVisibility}
+          />
+        )}
+        {settingslModalVisibility && (
+          <SettingsModal
+            setSettingslModalVisibility={setSettingslModalVisibility}
+          />
+        )}
+
+        <Toast toastlist={notif} setList={setNotif} />
+      </MainLayout>
+    </AppContext.Provider>
   );
 }
 const App = () => {
