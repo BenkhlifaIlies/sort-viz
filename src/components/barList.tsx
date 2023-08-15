@@ -1,28 +1,28 @@
-import { useLayoutEffect, useState } from 'react';
+import { useContext, useLayoutEffect } from 'react';
 import Bar from './common/bar';
 import styled from 'styled-components';
-import { arrayGenerator } from '../utils/array';
-
-const getWindowDimensions = () =>
-  Math.min(document.documentElement.clientWidth, 1440);
+import { arrayGenerator, getWindowDimensions } from '../utils/array';
+import { AppContext } from '../contexts/context';
 
 const BarList = () => {
-  const [array, setArray] = useState<number[]>(
-    arrayGenerator(0, 99, getWindowDimensions()),
-  );
+  const { values, updateValues } = useContext(AppContext);
+
+  // const [array, setArray] = useState<number[]>(
+  //   arrayGenerator(0, 99, getWindowDimensions()),
+  // );
 
   useLayoutEffect(() => {
     function handleResize() {
-      setArray(arrayGenerator(0, 99, getWindowDimensions()));
+      updateValues(arrayGenerator(0, 99, getWindowDimensions()));
     }
 
     screen.orientation.addEventListener('change', handleResize);
     return () => screen.orientation.removeEventListener('change', handleResize);
-  }, []);
+  }, [updateValues]);
 
   return (
     <StyledSection>
-      {array.map((el, index) => {
+      {values.map((el, index) => {
         return <Bar key={index} className={'bar'} value={el} />;
       })}
     </StyledSection>

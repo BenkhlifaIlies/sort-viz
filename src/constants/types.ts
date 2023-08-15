@@ -8,6 +8,7 @@ export type ContextType = {
   notificationList: ToastType[];
   pushNotification: (toast: ToastType) => void;
   values: number[];
+  updateValues: (n: number[]) => void;
 };
 
 export type Settings = {

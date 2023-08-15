@@ -1,10 +1,10 @@
-const getRandomInt = (min: number, max: number): number => {
+export const getRandomInt = (min: number, max: number): number => {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
-function barsCalculator(n: number) {
+export const barsCalculator = (n: number) => {
   if (n >= 1440) {
     return Math.floor((n * 0.9) / 32);
   } else if (n >= 1024) {
@@ -20,9 +20,9 @@ function barsCalculator(n: number) {
   } else {
     return 6;
   }
-}
+};
 
-const arrayGenerator = (
+export const arrayGenerator = (
   MIN_VALUE: number,
   MAX_VALUE: number,
   width: number,
@@ -40,4 +40,5 @@ const arrayGenerator = (
   return array;
 };
 
-export { getRandomInt, barsCalculator, arrayGenerator };
+export const getWindowDimensions = () =>
+  Math.min(document.documentElement.clientWidth, 1440);

@@ -9,6 +9,7 @@ const initialState = {
   speed: 200 as AnimationSpeed,
   updateAnimationSettings: () => {},
   values: [],
+  updateValues: () => {},
   notificationList: [],
   pushNotification: () => {},
 };

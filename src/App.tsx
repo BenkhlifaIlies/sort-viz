@@ -21,6 +21,7 @@ import {
   ToastType,
 } from './constants/types';
 import { algoOptions, animationoptions } from './constants/constants';
+import { arrayGenerator, getWindowDimensions } from './utils/array';
 
 function MyApp() {
   const [tutorialModalVisibility, setTutorialModalVisibility] =
@@ -28,6 +29,9 @@ function MyApp() {
   const [settingslModalVisibility, setSettingslModalVisibility] =
     useState<boolean>(false);
   const [notif, setNotif] = useState<ToastType[]>([]);
+  const [values, setValues] = useState<number[]>(
+    arrayGenerator(0, 99, getWindowDimensions()),
+  );
   const [algorithm, setAlgorithm] = useState<Algorithm>(
     algoOptions[0] as Algorithm,
   );
@@ -58,6 +62,10 @@ function MyApp() {
     setSpeed(n);
   };
 
+  const updateValues = (n: number[]) => {
+    setValues(n);
+  };
+
   const initContext: ContextType = {
     settingslModalVisibility,
     toggleModalVisibility,
@@ -67,7 +75,8 @@ function MyApp() {
     updateAnimationSettings,
     notificationList: [],
     pushNotification,
-    values: [],
+    values,
+    updateValues,
   };
 
   return (
