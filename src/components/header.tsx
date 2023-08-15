@@ -5,10 +5,11 @@ import Button from './common/button';
 import Logo from '../assets/svg/sortviz.svg';
 import { RunSvg, ShuffleSvg, RandomizeSvg, CogSvg } from './common/icons';
 import { AppContext } from '../contexts/context';
-import { arrayGenerator, getWindowDimensions } from '../utils/array';
+import { arrayGenerator, getWindowDimensions, shuffle } from '../utils/array';
 
 const Header = () => {
-  const { toggleModalVisibility, updateValues } = useContext(AppContext);
+  const { toggleModalVisibility, values, updateValues } =
+    useContext(AppContext);
 
   return (
     <HeaderWrapper>
@@ -30,7 +31,7 @@ const Header = () => {
           <Button
             variant="control-panel"
             label="shuffle"
-            onClick={() => console.log('Shuffle been pressed')}
+            onClick={() => updateValues([...shuffle(values)])}
           >
             <ShuffleSvg />
           </Button>
