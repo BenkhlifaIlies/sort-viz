@@ -1,3 +1,5 @@
+import { BarElemet } from '../constants/types';
+
 export const getRandomInt = (min: number, max: number): number => {
   min = Math.ceil(min);
   max = Math.floor(max);
@@ -31,11 +33,12 @@ export const arrayGenerator = (
   const barsCount = barsCalculator(width);
 
   for (let index = 0; index < barsCount; index++) {
-    array.push(getRandomInt(MIN_VALUE, MAX_VALUE));
-    // array.push({
-    //   className: '',
-    //   value: getRandomInt(MIN_VALUE, MAX_VALUE),
-    // });
+    array.push({
+      value: getRandomInt(MIN_VALUE, MAX_VALUE),
+      id: 'barelem_' + index,
+      className: 'bar',
+      isAnimate: false,
+    });
   }
   return array;
 };
@@ -43,10 +46,12 @@ export const arrayGenerator = (
 export const getWindowDimensions = () =>
   Math.min(document.documentElement.clientWidth, 1440);
 
-export const shuffle = (array: number[]) => {
+export const shuffle = (array: BarElemet[]) => {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [array[i], array[j]] = [array[j], array[i]];
   }
-  return array;
+  return [...array];
 };
+
+export const sleep = (ms: number) => new Promise(r => setTimeout(r, ms));

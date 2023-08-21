@@ -7,8 +7,8 @@ export type ContextType = {
   toggleModalVisibility: () => void;
   notificationList: ToastType[];
   pushNotification: (toast: ToastType) => void;
-  values: number[];
-  updateValues: (n: number[]) => void;
+  values: BarElemet[];
+  updateValues: (arr: BarElemet[]) => void;
 };
 
 export type Settings = {
@@ -27,4 +27,11 @@ export type AnimationSpeed = 50 | 200 | 500 | 1000;
 export type ToastType = {
   id: number;
   message: string;
+};
+
+export type BarElemet = {
+  value: number;
+  className: string;
+  id: string;
+  isAnimate: boolean;
 };

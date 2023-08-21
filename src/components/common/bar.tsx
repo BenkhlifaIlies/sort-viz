@@ -1,14 +1,12 @@
 import styled from 'styled-components';
+import { BarElemet } from '../../constants/types';
 
-interface BarProps {
-  value: number;
-  className: string;
-}
+interface BarProps extends BarElemet {}
 
-const Bar = ({ value, className }: BarProps) => {
+const Bar = ({ ...elem }: BarProps) => {
   return (
-    <StyledBar $height={value} className={className}>
-      {value}
+    <StyledBar $height={elem.value} className={elem.className}>
+      {elem.value}
     </StyledBar>
   );
 };

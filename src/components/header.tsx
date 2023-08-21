@@ -17,7 +17,7 @@ const Header = () => {
         <StyledDiv>
           <Link to={'/'}>
             <img src={Logo} alt="AlgoViz logo" />
-            <span> AlgoViz </span>
+            <span> SortViz </span>
           </Link>
         </StyledDiv>
         <ControlPanel>
@@ -31,7 +31,9 @@ const Header = () => {
           <Button
             variant="control-panel"
             label="shuffle"
-            onClick={() => updateValues([...shuffle(values)])}
+            onClick={() => {
+              updateValues(shuffle(values));
+            }}
           >
             <ShuffleSvg />
           </Button>
@@ -102,7 +104,6 @@ const StyledDiv = styled.div`
   }
 `;
 const ControlPanel = styled.div`
-  /* padding: 2px; */
   font-size: 1.5rem;
   display: flex;
   flex-wrap: nowrap;

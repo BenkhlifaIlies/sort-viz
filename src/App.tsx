@@ -5,7 +5,6 @@ import {
   Routes,
   Navigate,
 } from 'react-router-dom';
-
 import './assets/styles/App.css';
 import MainLayout from './layout/mainLayout';
 
@@ -17,6 +16,7 @@ import { AppContext } from './contexts/context';
 import {
   Algorithm,
   AnimationSpeed,
+  BarElemet,
   ContextType,
   ToastType,
 } from './constants/types';
@@ -29,7 +29,7 @@ function MyApp() {
   const [settingslModalVisibility, setSettingslModalVisibility] =
     useState<boolean>(false);
   const [notif, setNotif] = useState<ToastType[]>([]);
-  const [values, setValues] = useState<number[]>(
+  const [values, setValues] = useState<BarElemet[]>(
     arrayGenerator(0, 99, getWindowDimensions()),
   );
   const [algorithm, setAlgorithm] = useState<Algorithm>(
@@ -62,7 +62,7 @@ function MyApp() {
     setSpeed(n);
   };
 
-  const updateValues = (n: number[]) => {
+  const updateValues = (n: BarElemet[]) => {
     setValues(n);
   };
 

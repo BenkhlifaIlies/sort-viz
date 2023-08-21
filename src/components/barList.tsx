@@ -1,15 +1,14 @@
-import { useContext, useLayoutEffect } from 'react';
-import Bar from './common/bar';
+import { useLayoutEffect, useContext } from 'react';
 import styled from 'styled-components';
-import { arrayGenerator, getWindowDimensions } from '../utils/array';
+import { useAutoAnimate } from '@formkit/auto-animate/react';
 import { AppContext } from '../contexts/context';
+import Bar from './common/bar';
+import { BarElemet } from '../constants/types';
+import { arrayGenerator, getWindowDimensions } from '../utils/array';
 
 const BarList = () => {
   const { values, updateValues } = useContext(AppContext);
-
-  // const [array, setArray] = useState<number[]>(
-  //   arrayGenerator(0, 99, getWindowDimensions()),
-  // );
+  const [parent] = useAutoAnimate();
 
   useLayoutEffect(() => {
     function handleResize() {
@@ -21,9 +20,9 @@ const BarList = () => {
   }, [updateValues]);
 
   return (
-    <StyledSection>
-      {values.map((el, index) => {
-        return <Bar key={index} className={'bar'} value={el} />;
+    <StyledSection ref={parent}>
+      {values.map((elem: BarElemet) => {
+        return <Bar {...elem} key={elem.id} />;
       })}
     </StyledSection>
   );
@@ -38,4 +37,5 @@ const StyledSection = styled.section`
   margin-bottom: 3rem;
   margin-inline: auto;
 `;
+
 export default BarList;
