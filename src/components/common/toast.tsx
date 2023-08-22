@@ -1,6 +1,7 @@
 import { useCallback, useEffect } from 'react';
 import styled from 'styled-components';
 import { ToastType } from '../../constants/types';
+import { TOAST_DURATION } from '../../constants/constants';
 interface TostProps {
   toastlist: ToastType[];
   setList: React.Dispatch<React.SetStateAction<ToastType[]>>;
@@ -20,7 +21,7 @@ const Toast = ({ toastlist, setList }: TostProps) => {
       if (toastlist.length) {
         deleteToast(toastlist[0].id);
       }
-    }, 2000);
+    }, TOAST_DURATION);
 
     return () => {
       clearInterval(interval);
