@@ -51,8 +51,14 @@ function MyApp() {
     setSettingslModalVisibility(!settingslModalVisibility);
   };
 
-  const pushNotification = (toast: ToastType) => {
-    setNotif([...notif, toast]);
+  const pushNotification = (message: string) => {
+    setNotif([
+      ...notif,
+      {
+        id: notif.length + 1,
+        message,
+      },
+    ]);
   };
 
   const updateAlgorithmSettings = (a: Algorithm) => {

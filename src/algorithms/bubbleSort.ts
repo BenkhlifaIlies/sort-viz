@@ -7,7 +7,7 @@ const bubbleSort = async (
   updateValues: (array: BarElement[]) => void,
 ) => {
   const sorter = await bubbleSorter();
-  sorter(arr, speed, updateValues);
+  await sorter(arr, speed, updateValues);
 };
 
 async function bubbleSorter() {

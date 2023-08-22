@@ -14,6 +14,5 @@ export default async function sortValuesByAlgorithm(
     default:
       break;
   }
-
   return;
 }

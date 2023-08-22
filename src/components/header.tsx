@@ -9,11 +9,23 @@ import { arrayGenerator, getWindowDimensions, shuffle } from '../utils/array';
 import sortValuesByAlgorithm from '../algorithms';
 
 const Header = () => {
-  const { values, algorithm, speed, updateValues, toggleModalVisibility } =
-    useContext(AppContext);
+  const {
+    values,
+    algorithm,
+    speed,
+    updateValues,
+    toggleModalVisibility,
+    pushNotification,
+  } = useContext(AppContext);
 
   const handleShuffle = () => {
     updateValues(shuffle(values.map(el => ({ ...el, className: 'bar' }))));
+  };
+
+  const sort = async () => {
+    await sortValuesByAlgorithm(values, algorithm, speed, updateValues);
+    const toastMsg = `${algorithm} finished executing successfully`;
+    pushNotification(toastMsg);
   };
 
   return (
@@ -26,13 +38,7 @@ const Header = () => {
           </Link>
         </StyledDiv>
         <ControlPanel>
-          <Button
-            variant="control-panel"
-            label="run"
-            onClick={() =>
-              sortValuesByAlgorithm(values, algorithm, speed, updateValues)
-            }
-          >
+          <Button variant="control-panel" label="run" onClick={sort}>
             <RunSvg />
           </Button>
           <Button

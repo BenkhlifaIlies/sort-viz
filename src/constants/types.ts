@@ -6,7 +6,7 @@ export type ContextType = {
   settingslModalVisibility: boolean;
   toggleModalVisibility: () => void;
   notificationList: ToastType[];
-  pushNotification: (toast: ToastType) => void;
+  pushNotification: (toastMsg: string) => void;
   values: BarElement[];
   updateValues: (arr: BarElement[]) => void;
 };
