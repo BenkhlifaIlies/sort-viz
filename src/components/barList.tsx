@@ -12,7 +12,7 @@ const BarList = () => {
 
   useLayoutEffect(() => {
     function handleResize() {
-      updateValues(arrayGenerator(0, 99, getWindowDimensions()));
+      updateValues(arrayGenerator(getWindowDimensions()));
     }
 
     screen.orientation.addEventListener('change', handleResize);

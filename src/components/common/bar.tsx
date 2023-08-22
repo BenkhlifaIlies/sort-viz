@@ -5,7 +5,7 @@ interface BarProps extends BarElement {}
 
 const Bar = ({ ...elem }: BarProps) => {
   return (
-    <StyledBar $height={elem.value} className={elem.className}>
+    <StyledBar $height={Math.max(elem.value, 0)} className={elem.className}>
       {elem.value}
     </StyledBar>
   );

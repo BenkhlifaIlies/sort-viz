@@ -30,11 +30,8 @@ function MyApp() {
   const [settingslModalVisibility, setSettingslModalVisibility] =
     useState<boolean>(false);
   const [notif, setNotif] = useState<ToastType[]>([]);
-  // const [values, setValues] = useState<BarElement[]>(
-  //   arrayGenerator(0, 99, getWindowDimensions()),
-  // );
   const [values, setValues] = useAsyncState(
-    arrayGenerator(0, 99, getWindowDimensions()),
+    arrayGenerator(getWindowDimensions()),
   );
   const [algorithm, setAlgorithm] = useState<Algorithm>(
     algoOptions[0] as Algorithm,
