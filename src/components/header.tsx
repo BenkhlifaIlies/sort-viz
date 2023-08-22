@@ -45,9 +45,7 @@ const Header = () => {
           <Button
             variant="control-panel"
             label="randomize"
-            onClick={() =>
-              updateValues(arrayGenerator(getWindowDimensions()))
-            }
+            onClick={() => updateValues(arrayGenerator(getWindowDimensions()))}
           >
             <RandomizeSvg />
           </Button>
