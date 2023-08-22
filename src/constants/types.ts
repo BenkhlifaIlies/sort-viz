@@ -7,8 +7,8 @@ export type ContextType = {
   toggleModalVisibility: () => void;
   notificationList: ToastType[];
   pushNotification: (toast: ToastType) => void;
-  values: BarElemet[];
-  updateValues: (arr: BarElemet[]) => void;
+  values: BarElement[];
+  updateValues: (arr: BarElement[]) => void;
 };
 
 export type Settings = {
@@ -29,7 +29,7 @@ export type ToastType = {
   message: string;
 };
 
-export type BarElemet = {
+export type BarElement = {
   value: number;
   className: string;
   id: string;

@@ -1,13 +1,13 @@
 import { useState } from 'react';
-import { BarElemet } from '../constants/types';
+import { BarElement } from '../constants/types';
 
-const useAsyncState = (initialState: BarElemet[]) => {
-  const [state, setState] = useState<BarElemet[]>(initialState);
+const useAsyncState = (initialState: BarElement[]) => {
+  const [state, setState] = useState<BarElement[]>(initialState);
 
-  const asyncSetState = (value: BarElemet[]) => {
+  const asyncSetState = (value: BarElement[]) => {
     return new Promise(resolve => {
       setState(value);
-      setState((current: BarElemet[]) => {
+      setState((current: BarElement[]) => {
         resolve(current);
         return current;
       });

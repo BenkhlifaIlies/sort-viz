@@ -1,4 +1,4 @@
-import { BarElemet } from '../constants/types';
+import { BarElement } from '../constants/types';
 
 export const getRandomInt = (min: number, max: number): number => {
   min = Math.ceil(min);
@@ -46,7 +46,7 @@ export const arrayGenerator = (
 export const getWindowDimensions = () =>
   Math.min(document.documentElement.clientWidth, 1440);
 
-export const shuffle = (array: BarElemet[]) => {
+export const shuffle = (array: BarElement[]) => {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [array[i], array[j]] = [array[j], array[i]];

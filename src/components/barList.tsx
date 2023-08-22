@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { useAutoAnimate } from '@formkit/auto-animate/react';
 import { AppContext } from '../contexts/context';
 import Bar from './common/bar';
-import { BarElemet } from '../constants/types';
+import { BarElement } from '../constants/types';
 import { arrayGenerator, getWindowDimensions } from '../utils/array';
 
 const BarList = () => {
@@ -21,7 +21,7 @@ const BarList = () => {
 
   return (
     <StyledSection ref={parent}>
-      {values.map((elem: BarElemet) => {
+      {values.map((elem: BarElement) => {
         return <Bar {...elem} key={elem.id} />;
       })}
     </StyledSection>

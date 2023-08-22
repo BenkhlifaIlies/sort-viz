@@ -1,11 +1,11 @@
-import { Algorithm, BarElemet } from '../constants/types';
+import { Algorithm, BarElement } from '../constants/types';
 
 import bubbleSort from './bubbleSort';
 export default async function sortValuesByAlgorithm(
-  values: BarElemet[],
+  values: BarElement[],
   algorithm: Algorithm,
   speed: number,
-  updateValues: (arr: BarElemet[]) => void,
+  updateValues: (arr: BarElement[]) => void,
 ) {
   switch (algorithm) {
     case 'Bubble Sort':

@@ -16,7 +16,7 @@ import { AppContext } from './contexts/context';
 import {
   Algorithm,
   AnimationSpeed,
-  BarElemet,
+  BarElement,
   ContextType,
   ToastType,
 } from './constants/types';
@@ -30,7 +30,7 @@ function MyApp() {
   const [settingslModalVisibility, setSettingslModalVisibility] =
     useState<boolean>(false);
   const [notif, setNotif] = useState<ToastType[]>([]);
-  // const [values, setValues] = useState<BarElemet[]>(
+  // const [values, setValues] = useState<BarElement[]>(
   //   arrayGenerator(0, 99, getWindowDimensions()),
   // );
   const [values, setValues] = useAsyncState(
@@ -66,7 +66,7 @@ function MyApp() {
     setSpeed(n);
   };
 
-  const updateValues = async (n: BarElemet[]) => {
+  const updateValues = async (n: BarElement[]) => {
     await setValues(n);
   };
 

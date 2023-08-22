@@ -1,9 +1,9 @@
-import { BarElemet } from '../constants/types';
+import { BarElement } from '../constants/types';
 
 export default async function bubbleSort(
-  arr: BarElemet[],
+  arr: BarElement[],
   speed: number,
-  updateValues: (array: BarElemet[]) => void,
+  updateValues: (array: BarElement[]) => void,
 ) {
   console.log(arr.length, speed);
 
@@ -16,10 +16,10 @@ export default async function bubbleSort(
 async function bubbleSorter() {
   // A helper function that swaps two elements in an array
   async function swap(
-    arr: BarElemet[],
+    arr: BarElement[],
     i: number,
     j: number,
-    updateValues: (array: BarElemet[]) => void,
+    updateValues: (array: BarElement[]) => void,
     speed: number,
   ) {
     [arr[j], arr[i]] = [arr[i], arr[j]];
@@ -29,9 +29,9 @@ async function bubbleSorter() {
 
   // A closure that takes an array as an argument and sorts it in place
   return async function (
-    arr: BarElemet[],
+    arr: BarElement[],
     speed: number,
-    updateValues: (array: BarElemet[]) => void,
+    updateValues: (array: BarElement[]) => void,
   ) {
     const n = arr.length;
     // Loop over the array n times

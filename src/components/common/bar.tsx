@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { BarElemet } from '../../constants/types';
+import { BarElement } from '../../constants/types';
 
-interface BarProps extends BarElemet {}
+interface BarProps extends BarElement {}
 
 const Bar = ({ ...elem }: BarProps) => {
   return (
