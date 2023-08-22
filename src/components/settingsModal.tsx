@@ -13,8 +13,13 @@ interface IProps {
 }
 
 const SettingsModal = ({ setSettingslModalVisibility }: IProps) => {
-  const { algorithm, updateAlgorithmSettings, speed, updateAnimationSettings } =
-    useContext(AppContext);
+  const {
+    algorithm,
+    updateAlgorithmSettings,
+    speed,
+    updateAnimationSettings,
+    pushNotification,
+  } = useContext(AppContext);
 
   const [settings, setSettings] = useState<Settings>({
     algorithm,
@@ -31,6 +36,7 @@ const SettingsModal = ({ setSettingslModalVisibility }: IProps) => {
     updateAlgorithmSettings(settings.algorithm);
     updateAnimationSettings(settings.speed);
     setSettingslModalVisibility(false);
+    pushNotification('Settings updated.');
   };
 
   const handleClose = () => {
