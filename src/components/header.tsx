@@ -12,6 +12,10 @@ const Header = () => {
   const { values, algorithm, speed, updateValues, toggleModalVisibility } =
     useContext(AppContext);
 
+  const handleShuffle = () => {
+    updateValues(shuffle(values.map(el => ({ ...el, className: 'bar' }))));
+  };
+
   return (
     <HeaderWrapper>
       <Wrapper>
@@ -34,9 +38,7 @@ const Header = () => {
           <Button
             variant="control-panel"
             label="shuffle"
-            onClick={() => {
-              updateValues(shuffle(values));
-            }}
+            onClick={handleShuffle}
           >
             <ShuffleSvg />
           </Button>
