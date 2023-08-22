@@ -14,7 +14,7 @@ const useAsyncState = (initialState: BarElemet[]) => {
     });
   };
 
-  return [state, asyncSetState];
+  return [state, asyncSetState] as const;
 };
 
 export default useAsyncState;
