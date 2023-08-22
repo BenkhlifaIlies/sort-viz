@@ -5,4 +5,4 @@ export const algoOptions = [
   'Quick Sort',
 ];
 
-export const animationoptions = [50, 200, 500, 1000].sort();
+export const animationoptions = [50, 200, 500, 1000].sort((a, b) => a - b);
