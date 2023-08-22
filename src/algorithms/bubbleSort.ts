@@ -5,7 +5,6 @@ export default async function bubbleSort(
   speed: number,
   updateValues: (array: BarElement[]) => void,
 ) {
-  console.log(arr.length, speed);
   const sorter = await bubbleSorter();
   sorter(arr, speed, updateValues);
 }
