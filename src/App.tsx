@@ -22,6 +22,7 @@ import {
 } from './constants/types';
 import { algoOptions, animationoptions } from './constants/constants';
 import { arrayGenerator, getWindowDimensions } from './utils/array';
+import useAsyncState from './hooks/useAsyncState';
 
 function MyApp() {
   const [tutorialModalVisibility, setTutorialModalVisibility] =
@@ -29,7 +30,10 @@ function MyApp() {
   const [settingslModalVisibility, setSettingslModalVisibility] =
     useState<boolean>(false);
   const [notif, setNotif] = useState<ToastType[]>([]);
-  const [values, setValues] = useState<BarElemet[]>(
+  // const [values, setValues] = useState<BarElemet[]>(
+  //   arrayGenerator(0, 99, getWindowDimensions()),
+  // );
+  const [values, setValues] = useAsyncState(
     arrayGenerator(0, 99, getWindowDimensions()),
   );
   const [algorithm, setAlgorithm] = useState<Algorithm>(
@@ -62,8 +66,8 @@ function MyApp() {
     setSpeed(n);
   };
 
-  const updateValues = (n: BarElemet[]) => {
-    setValues(n);
+  const updateValues = async (n: BarElemet[]) => {
+    await setValues(n);
   };
 
   const initContext: ContextType = {

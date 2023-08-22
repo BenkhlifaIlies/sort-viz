@@ -6,9 +6,10 @@ import Logo from '../assets/svg/sortviz.svg';
 import { RunSvg, ShuffleSvg, RandomizeSvg, CogSvg } from './common/icons';
 import { AppContext } from '../contexts/context';
 import { arrayGenerator, getWindowDimensions, shuffle } from '../utils/array';
+import sortValuesByAlgorithm from '../algorithms';
 
 const Header = () => {
-  const { toggleModalVisibility, values, updateValues } =
+  const { values, algorithm, speed, updateValues, toggleModalVisibility } =
     useContext(AppContext);
 
   return (
@@ -24,7 +25,9 @@ const Header = () => {
           <Button
             variant="control-panel"
             label="run"
-            onClick={() => console.log('Run been pressed')}
+            onClick={() =>
+              sortValuesByAlgorithm(values, algorithm, speed, updateValues)
+            }
           >
             <RunSvg />
           </Button>
