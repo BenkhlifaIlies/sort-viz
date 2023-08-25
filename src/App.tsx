@@ -3,7 +3,7 @@ import {
   BrowserRouter as Router,
   Route,
   Routes,
-  Navigate,
+  // Navigate,
 } from 'react-router-dom';
 import './assets/styles/App.css';
 import MainLayout from './layout/mainLayout';
@@ -23,6 +23,7 @@ import {
 import { algoOptions, animationoptions } from './constants/constants';
 import { arrayGenerator, getWindowDimensions } from './utils/array';
 import useAsyncState from './hooks/useAsyncState';
+import PageNotFound from './pages/404';
 
 function MyApp() {
   const [tutorialModalVisibility, setTutorialModalVisibility] =
@@ -111,7 +112,7 @@ const App = () => {
     <Router>
       <Routes>
         <Route path="/" element={<MyApp />} />
-        <Route path="*" element={<Navigate to="/" replace />} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </Router>
   );
