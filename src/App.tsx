@@ -1,10 +1,5 @@
 import { useLayoutEffect, useState } from 'react';
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  // Navigate,
-} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './assets/styles/App.css';
 import MainLayout from './layout/mainLayout';
 
@@ -24,6 +19,7 @@ import { algoOptions, animationoptions } from './constants/constants';
 import { arrayGenerator, getWindowDimensions } from './utils/array';
 import useAsyncState from './hooks/useAsyncState';
 import PageNotFound from './pages/404';
+import About from './pages/about';
 
 function MyApp() {
   const [tutorialModalVisibility, setTutorialModalVisibility] =
@@ -112,6 +108,7 @@ const App = () => {
     <Router>
       <Routes>
         <Route path="/" element={<MyApp />} />
+        <Route path="/about" element={<About />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </Router>

@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import Button from './common/button';
 import Logo from '../assets/svg/sortviz.svg';
@@ -28,6 +28,8 @@ const Header = () => {
     pushNotification(toastMsg);
   };
 
+  const { pathname } = useLocation();
+
   return (
     <HeaderWrapper>
       <Wrapper>
@@ -37,32 +39,38 @@ const Header = () => {
             <span> SortViz </span>
           </Link>
         </StyledDiv>
-        <ControlPanel>
-          <Button variant="control-panel" label="run" onClick={sort}>
-            <RunSvg />
-          </Button>
-          <Button
-            variant="control-panel"
-            label="shuffle"
-            onClick={handleShuffle}
-          >
-            <ShuffleSvg />
-          </Button>
-          <Button
-            variant="control-panel"
-            label="randomize"
-            onClick={() => updateValues(arrayGenerator(getWindowDimensions()))}
-          >
-            <RandomizeSvg />
-          </Button>
-          <Button
-            variant="control-panel"
-            label=""
-            onClick={toggleModalVisibility}
-          >
-            <CogSvg />
-          </Button>
-        </ControlPanel>
+        {pathname !== '/' ? null : (
+          <>
+            <ControlPanel>
+              <Button variant="control-panel" label="run" onClick={sort}>
+                <RunSvg />
+              </Button>
+              <Button
+                variant="control-panel"
+                label="shuffle"
+                onClick={handleShuffle}
+              >
+                <ShuffleSvg />
+              </Button>
+              <Button
+                variant="control-panel"
+                label="randomize"
+                onClick={() =>
+                  updateValues(arrayGenerator(getWindowDimensions()))
+                }
+              >
+                <RandomizeSvg />
+              </Button>
+              <Button
+                variant="control-panel"
+                label=""
+                onClick={toggleModalVisibility}
+              >
+                <CogSvg />
+              </Button>
+            </ControlPanel>
+          </>
+        )}
       </Wrapper>
     </HeaderWrapper>
   );
