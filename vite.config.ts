@@ -16,7 +16,7 @@ export default defineConfig({
       manifest: {
         name: 'Sort-Viz',
         short_name: 'Sort-Viz',
-        description: 'Website description(Could be same with index.html file)',
+        description: 'A visualization tool for various sorting algorithms',
         theme_color: '#ffffff',
         start_url: '/',
         icons: [
