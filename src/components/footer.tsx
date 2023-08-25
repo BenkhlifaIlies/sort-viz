@@ -72,8 +72,6 @@ const Footer = () => {
                 <a href="mailto:theiliesbenkhlifa@gmail.com">Contact</a>
               </StyledLi>
               <StyledLi>Blog</StyledLi>
-              <StyledLi>Terms</StyledLi>
-              <StyledLi>Privacy</StyledLi>
             </StyledUl>
           </nav>
         </Container>
