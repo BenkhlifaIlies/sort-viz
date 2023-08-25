@@ -1,7 +1,118 @@
-import './App.css';
+import { useLayoutEffect, useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import './assets/styles/App.css';
+import MainLayout from './layout/mainLayout';
 
-function App() {
-  return <h1>Hello World!!</h1>;
+import TutorialModal from './components/tutorialModal';
+import Toast from './components/common/toast';
+import SettingsModal from './components/settingsModal';
+import BarList from './components/barList';
+import { AppContext } from './contexts/context';
+import {
+  Algorithm,
+  AnimationSpeed,
+  BarElement,
+  ContextType,
+  ToastType,
+} from './constants/types';
+import { algoOptions, animationoptions } from './constants/constants';
+import { arrayGenerator, getWindowDimensions } from './utils/array';
+import useAsyncState from './hooks/useAsyncState';
+import PageNotFound from './pages/404';
+import About from './pages/about';
+
+function MyApp() {
+  const [tutorialModalVisibility, setTutorialModalVisibility] =
+    useState<boolean>(false);
+  const [settingslModalVisibility, setSettingslModalVisibility] =
+    useState<boolean>(false);
+  const [notif, setNotif] = useState<ToastType[]>([]);
+  const [values, setValues] = useAsyncState(
+    arrayGenerator(getWindowDimensions()),
+  );
+  const [algorithm, setAlgorithm] = useState<Algorithm>(
+    algoOptions[0] as Algorithm,
+  );
+  const [speed, setSpeed] = useState<AnimationSpeed>(
+    animationoptions[1] as AnimationSpeed,
+  );
+
+  useLayoutEffect(() => {
+    if (window.sessionStorage.getItem('show-tutorial') !== 'false') {
+      setTutorialModalVisibility(true);
+      window.sessionStorage.setItem('show-tutorial', 'false');
+    }
+  }, []);
+
+  const toggleModalVisibility = () => {
+    setSettingslModalVisibility(!settingslModalVisibility);
+  };
+
+  const pushNotification = (message: string) => {
+    setNotif([
+      ...notif,
+      {
+        id: notif.length + 1,
+        message,
+      },
+    ]);
+  };
+
+  const updateAlgorithmSettings = (a: Algorithm) => {
+    setAlgorithm(a);
+  };
+
+  const updateAnimationSettings = (n: AnimationSpeed) => {
+    setSpeed(n);
+  };
+
+  const updateValues = async (n: BarElement[]) => {
+    await setValues(n);
+  };
+
+  const initContext: ContextType = {
+    settingslModalVisibility,
+    toggleModalVisibility,
+    algorithm,
+    updateAlgorithmSettings,
+    speed,
+    updateAnimationSettings,
+    notificationList: [],
+    pushNotification,
+    values,
+    updateValues,
+  };
+
+  return (
+    <AppContext.Provider value={initContext}>
+      <MainLayout>
+        <BarList />
+        {tutorialModalVisibility && (
+          <TutorialModal
+            setTutorialModalVisibility={setTutorialModalVisibility}
+          />
+        )}
+        {settingslModalVisibility && (
+          <SettingsModal
+            setSettingslModalVisibility={setSettingslModalVisibility}
+          />
+        )}
+
+        <Toast toastlist={notif} setList={setNotif} />
+      </MainLayout>
+    </AppContext.Provider>
+  );
 }
+const App = () => {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<MyApp />} />
+        <Route path="/about" element={<About />} />
+        <Route path="*" element={<PageNotFound />} />
+      </Routes>
+    </Router>
+  );
+};
 
 export default App;
