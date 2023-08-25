@@ -1,14 +1,23 @@
 import { BarElement } from '../constants/types';
 import { changeClassName, sleep, swap } from '../utils/animation';
 
-const insertionSort = async (
+export default async function insertionSorter(
   arr: BarElement[],
   speed: number,
   updateValues: (array: BarElement[]) => void,
-) => {
-  const sorter = await insertionSorter();
-  await sorter(arr, speed, updateValues);
-};
+) {
+  const n = arr.length;
+  for (let i = 0; i < n; i++) {
+    changeClassName(arr, i, 'bar red');
+    updateValues([...arr]);
+    await insert(arr, i, updateValues, speed);
+    await sleep(speed);
+    changeClassName(arr, i, 'bar green');
+    updateValues([...arr]);
+    await sleep(speed);
+  }
+  return arr;
+}
 
 async function insert(
   arr: BarElement[],
@@ -37,25 +46,3 @@ async function insert(
   updateValues([...arr]);
   await sleep(speed);
 }
-
-async function insertionSorter() {
-  return async function (
-    arr: BarElement[],
-    speed: number,
-    updateValues: (array: BarElement[]) => void,
-  ) {
-    const n = arr.length;
-    for (let i = 0; i < n; i++) {
-      changeClassName(arr, i, 'bar red');
-      updateValues([...arr]);
-      await insert(arr, i, updateValues, speed);
-      await sleep(speed);
-      changeClassName(arr, i, 'bar green');
-      updateValues([...arr]);
-      await sleep(speed);
-    }
-    return arr;
-  };
-}
-
-export default insertionSort;

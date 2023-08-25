@@ -63,4 +63,5 @@ export default async function quickSort(
     await sleep(speed);
   }
   changeClassName(arr, 0, 'bar green');
+  return arr
 }
