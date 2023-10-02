@@ -6,7 +6,7 @@ export const getWindowDimensions = () =>
 
 export const barsCalculator = (n: number) => {
   if (n >= 1440) {
-    return Math.floor((n * 0.9) / 32);
+    return Math.floor((n * 0.8) / 32);
   } else if (n >= 1024) {
     return 24;
   } else if (n >= 768) {
