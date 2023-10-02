@@ -3,7 +3,7 @@ import styled from 'styled-components';
 interface ButtonProps {
   variant: 'primary' | 'cancel' | 'control-panel' | 'drop-down';
   label: string;
-  ariaLabel:string;
+  ariaLabel: string;
   onClick: () => void;
   children?: React.ReactNode;
   disabled?: boolean;
