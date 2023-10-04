@@ -32,7 +32,10 @@ const Wrapper = styled.div`
     flex: 1 1 auto;
     max-width: 1440px;
     margin-inline: auto;
-    padding-inline: 1rem;
+    padding-inline: 0.5rem;
+    @media (min-width: 767px) {
+      padding-inline: 1rem;
+    }
   }
 `;
 
