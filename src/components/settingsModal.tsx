@@ -75,11 +75,13 @@ const SettingsModal = ({ setSettingslModalVisibility }: IProps) => {
             label="Cancel"
             variant="cancel"
             onClick={handleClose}
+            ariaLabel={'Cancel'}
           ></Button>
           <Button
             label="Save"
             variant="primary"
             onClick={handleSubmit}
+            ariaLabel={'Save'}
           ></Button>
         </FlexEnd>
       </Modal.Footer>

@@ -23,7 +23,7 @@ const Modal = ({ title, children, setOpenModal }: ModalProps) => {
       <Backdrop onClick={handleClose} />
       <ModalWrapper>
         <ModalContent $display={String(display)}>
-          <div className="nodal-header">
+          <div className="modal-header">
             <ModalHeader>
               <Title>{title}</Title>
               <CloseBtn onClick={handleClose}>X</CloseBtn>
@@ -37,12 +37,12 @@ const Modal = ({ title, children, setOpenModal }: ModalProps) => {
 };
 
 const ModalBody = ({ children }: SubComponentProps) => (
-  <div className="nodal-body">{children}</div>
+  <div className="modal-body">{children}</div>
 );
 Modal.Body = ModalBody;
 
 const ModalFooter = ({ children }: SubComponentProps) => (
-  <div className="nodal-footer">{children}</div>
+  <div className="modal-footer">{children}</div>
 );
 Modal.Footer = ModalFooter;
 

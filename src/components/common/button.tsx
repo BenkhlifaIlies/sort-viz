@@ -3,6 +3,7 @@ import styled from 'styled-components';
 interface ButtonProps {
   variant: 'primary' | 'cancel' | 'control-panel' | 'drop-down';
   label: string;
+  ariaLabel: string;
   onClick: () => void;
   children?: React.ReactNode;
   disabled?: boolean;
@@ -11,12 +12,17 @@ interface ButtonProps {
 const button = ({
   variant = 'primary',
   label,
+  ariaLabel,
   onClick,
   children,
   disabled = false,
 }: ButtonProps) => {
   return (
-    <Button className={variant} {...{ disabled, onClick }}>
+    <Button
+      className={variant}
+      aria-label={ariaLabel}
+      {...{ disabled, onClick }}
+    >
       {children}
       <span>{label}</span>
     </Button>

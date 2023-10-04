@@ -15,8 +15,6 @@ const StyledBar = styled.div<{ $height: number }>`
   height: ${props => props.$height}px;
   min-height: 1.1rem;
   width: 2rem;
-  margin: 0 0.2rem;
-  padding: 0.25rem;
   font-size: smaller;
   font-weight: bold;
   text-align: center;

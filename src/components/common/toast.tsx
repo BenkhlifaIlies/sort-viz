@@ -26,7 +26,17 @@ const Toast = ({ toastlist, setList }: TostProps) => {
     return () => {
       clearInterval(interval);
     };
-  }, [toastlist, deleteToast]);
+  }, [deleteToast, setList, toastlist]);
+
+  useEffect(() => {
+    const interval = setTimeout(() => {
+      setList([]);
+    }, TOAST_DURATION);
+
+    return () => {
+      clearTimeout(interval);
+    };
+  });
 
   return (
     <NotificationsContainer>

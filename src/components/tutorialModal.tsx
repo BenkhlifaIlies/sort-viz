@@ -67,12 +67,14 @@ const TutorialModal = ({ setTutorialModalVisibility }: IProps) => {
           {pageCounter !== 1 && (
             <Button
               label="Previous"
+              ariaLabel={'Previous['}
               variant="primary"
               onClick={handlePrevious}
             />
           )}
           <Button
             label={pageCounter < 2 ? `Next` : `Close`}
+            ariaLabel={pageCounter < 2 ? `Next` : `Close`}
             variant="primary"
             onClick={handleNext}
           />

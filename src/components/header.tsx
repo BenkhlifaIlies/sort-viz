@@ -42,12 +42,18 @@ const Header = () => {
         {pathname !== '/' ? null : (
           <>
             <ControlPanel>
-              <Button variant="control-panel" label="run" onClick={sort}>
+              <Button
+                variant="control-panel"
+                label="run"
+                ariaLabel="Run"
+                onClick={sort}
+              >
                 <RunSvg />
               </Button>
               <Button
                 variant="control-panel"
                 label="shuffle"
+                ariaLabel="Shuffle"
                 onClick={handleShuffle}
               >
                 <ShuffleSvg />
@@ -55,6 +61,7 @@ const Header = () => {
               <Button
                 variant="control-panel"
                 label="randomize"
+                ariaLabel="Randomize"
                 onClick={() =>
                   updateValues(arrayGenerator(getWindowDimensions()))
                 }
@@ -63,6 +70,7 @@ const Header = () => {
               </Button>
               <Button
                 variant="control-panel"
+                ariaLabel="Settings"
                 label=""
                 onClick={toggleModalVisibility}
               >

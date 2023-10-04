@@ -31,7 +31,9 @@ const BarList = () => {
 const StyledSection = styled.section`
   display: flex;
   flex-direction: row;
+  gap: 0.5rem;
   justify-content: center;
+  align-items: start;
   flex-wrap: nowrap;
   margin-top: 2rem;
   margin-bottom: 3rem;

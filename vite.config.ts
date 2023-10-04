@@ -14,9 +14,9 @@ export default defineConfig({
       registerType: 'prompt',
       includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'masked-icon.svg'],
       manifest: {
-        name: 'websitename',
-        short_name: 'websitename',
-        description: 'Website description(Could be same with index.html file)',
+        name: 'Sort-Viz',
+        short_name: 'Sort-Viz',
+        description: 'A visualization tool for various sorting algorithms',
         theme_color: '#ffffff',
         start_url: '/',
         icons: [

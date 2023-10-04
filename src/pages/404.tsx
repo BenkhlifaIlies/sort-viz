@@ -24,8 +24,9 @@ const PageNotFound = () => {
         <h1>404 - Not Found!</h1>
         <p>Sorry, the page you are looking for does not exist.</p>
         <Button
-          variant="primary"
           label="Go home"
+          ariaLabel={'Go to home page'}
+          variant="primary"
           onClick={routeChange}
         ></Button>
       </div>
