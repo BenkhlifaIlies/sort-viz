@@ -48,6 +48,7 @@ const ErrorComponent = () => {
         variant="primary"
         label="Reload The App"
         onClick={() => window.location.reload()}
+        ariaLabel={'Reload'}
       ></Button>
     </Wrapper>
   );
