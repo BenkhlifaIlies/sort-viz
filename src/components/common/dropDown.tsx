@@ -31,6 +31,7 @@ const DropDown = ({
         variant="drop-down"
         label={currentOption}
         onClick={toggleDropdown}
+        ariaLabel={'drop down menu'}
       >
         <AnimatedSvg $rotate={isOpen}>
           <Arrow />
