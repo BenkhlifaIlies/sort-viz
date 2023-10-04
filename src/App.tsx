@@ -52,7 +52,7 @@ function MyApp() {
     setNotif([
       ...notif,
       {
-        id: notif.length + 1,
+        id:notif.length+1,
         message,
       },
     ]);
