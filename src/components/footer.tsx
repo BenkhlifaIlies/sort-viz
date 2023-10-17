@@ -1,17 +1,22 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-import { TwitterIcon, LinkedInIcon, GithubIcon } from './common/icons';
+import {
+  TwitterIcon,
+  LinkedInIcon,
+  GithubIcon,
+  BlogLogo,
+} from './common/icons';
 const Footer = () => {
   return (
     <StyledFooter>
       <Wrapper>
         <Container>
-          <StyledUl className="list-style-none d-flex flex-items-center mb-3 mb-sm-0 lh-condensed-ultra">
+          <StyledUl>
             <StyledLi>
-              <a href="https://twitter.com/IlyesBenkhlifa" target="_blank">
-                <TwitterIcon />
-                <span className="sr-only">My Twitter</span>
+              <a href="https://blog.iliesbenkhelifa.com/" target="_blank">
+                <BlogLogo />
+                <span className="sr-only">My Blog</span>
               </a>
             </StyledLi>
             <StyledLi>
@@ -27,6 +32,12 @@ const Footer = () => {
               <a href="https://github.com/BenkhlifaIlies" target="_blank">
                 <GithubIcon />
                 <span className="sr-only">My GitHub</span>
+              </a>
+            </StyledLi>
+            <StyledLi>
+              <a href="https://twitter.com/IlyesBenkhlifa" target="_blank">
+                <TwitterIcon />
+                <span className="sr-only">My Twitter</span>
               </a>
             </StyledLi>
           </StyledUl>
@@ -47,13 +58,17 @@ const Footer = () => {
               <StyledLi>
                 <a href="mailto:theiliesbenkhlifa@gmail.com">Contact</a>
               </StyledLi>
-              <StyledLi>Blog</StyledLi>
             </StyledUl>
           </nav>
         </Container>
         <StyledHr />
         <StyledP>
-          &copy; {new Date().getFullYear()} Benkhelifa Ilyes. | Made with
+          &copy; {new Date().getFullYear()},
+          <a href="https://iliesbenkhelifa.com/" target="_blank">
+            Benkhelifa Ilyes.
+            <span className="sr-only">My Portfolio</span>
+          </a>
+          | Made with
           <StyledSpan> &#9829;</StyledSpan> by Benkhelifa Ilyes.
         </StyledP>
       </Wrapper>
@@ -128,6 +143,11 @@ const StyledP = styled.p`
   font-weight: lighter;
   text-align: center;
   margin: 0;
+  a {
+    color: inherit;
+    text-decoration: none;
+    font-weight: bold;
+  }
 `;
 const StyledSpan = styled.span`
   color: var(--pure-red);
